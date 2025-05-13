@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Kawaii Demon Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffc6ec, #8c52ff);
+      font-family: 'Quicksand', sans-serif;
+      color: #2c003e;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 2rem;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Rubik Moonrocks', cursive;
+      color: #ff69b4;
+      font-size: 3rem;
+      text-shadow: 2px 2px 5px #00000080;
+      position: relative;
+    }
+
+    .wings {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 150px;
+      background: url('https://i.ibb.co/DLTB34v/demon-wings.png') no-repeat center;
+      background-size: contain;
+      animation: flap 2s infinite ease-in-out;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @keyframes flap {
+      0%, 100% { transform: translateX(-50%) rotate(0deg); }
+      50% { transform: translateX(-50%) rotate(8deg); }
+    }
+
+    .character {
+      width: 300px;
+      margin-top: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 1rem;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.ibb.co/NWmtdx4/heart.png') no-repeat center;
+      background-size: contain;
+      animation: float 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #ffffffaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wings"></div>
+    <h1>Добро пожаловать в мир каваи-дьяволиц!</h1>
+  </header>
+
+  <main>
+    <img class="character" src="dxd.jpg" alt="Kawaii Demon Girls">
+    <p>Тут милота и мрак объединились в одно целое.</p>
+    <button class="button">Открыть портал</button>
+  </main>
+
+  <div class="hearts">
+    <!-- Генерируем сердечки -->
+    <script>
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        document.querySelector('.hearts').appendChild(heart);
+      }
+    </script>
+  </div>
+
+  <footer>
+    &copy; 2025 Kawaii Demon Portal
+  </footer>
+</body>
+</html>
